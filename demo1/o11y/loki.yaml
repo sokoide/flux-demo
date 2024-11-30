@@ -19,7 +19,7 @@ spec:
     remediation:
       retries: 3
   targetNamespace: o11y
-  values: |
+  values:
     loki:
       auth_enabled: false
       commonConfig:
