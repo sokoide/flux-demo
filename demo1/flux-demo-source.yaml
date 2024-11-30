@@ -10,3 +10,5 @@ spec:
   ref:
     branch: main
   url: https://github.com/sokoide/flux-demo.git
+  secretRef:
+    name: flux-system
