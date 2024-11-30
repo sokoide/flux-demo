@@ -6,6 +6,7 @@ metadata:
   namespace: o11y
 spec:
   interval: 5m
+  timeout: 10m
   chart:
     spec:
       chart: loki
@@ -14,6 +15,9 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
+  install:
+    remediation:
+      retries: 3
   targetNamespace: o11y
   values: |
     loki:
