@@ -1,0 +1,18 @@
+# detect github repo changes
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bar
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  path: ./demo1/bar
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-demo
+  targetNamespace: bar
+  timeout: 3m0s
+  wait: true
