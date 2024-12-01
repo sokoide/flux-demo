@@ -9,15 +9,17 @@ resources:
 configMapGenerator:
   - name: grafana-dashboards
     namespace: o11y
+    behavior: replace
     files:
-      - grafana-dashboards/k8s-addons-prometheus.json
-      - grafana-dashboards/k8s-addons-trivy-operator.json
-      - grafana-dashboards/k8s-system-api-server.json
-      - grafana-dashboards/k8s-system-coredns.json
-      - grafana-dashboards/k8s-views-global.json
-      - grafana-dashboards/k8s-views-namespaces.json
-      - grafana-dashboards/k8s-views-nodes.json
-      - grafana-dashboards/k8s-views-pods.json
+      - grafana-dashboards/*.json
+      # - grafana-dashboards/k8s-addons-prometheus.json
+      # - grafana-dashboards/k8s-addons-trivy-operator.json
+      # - grafana-dashboards/k8s-system-api-server.json
+      # - grafana-dashboards/k8s-system-coredns.json
+      # - grafana-dashboards/k8s-views-global.json
+      # - grafana-dashboards/k8s-views-namespaces.json
+      # - grafana-dashboards/k8s-views-nodes.json
+      # - grafana-dashboards/k8s-views-pods.json
     options:
       labels:
         grafana_dashboard: "true"
