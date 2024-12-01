@@ -21,13 +21,7 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
-    downloadDashboardsImage:
-      repository: curlimages/curl
-      tag: 7.85.0
-      pullPolicy: IfNotPresent
     downloadDashboards:
-      enabled: false
-    initChownData:
       enabled: false
     dashboardProviders:
       dashboardproviders.yaml:
@@ -44,9 +38,6 @@ spec:
     sidecar:
       dashboards:
         enabled: true
-        searchNamespace: o11y
-        provider:
-          name: 'default'
     datasources:
       datasources.yaml:
         apiVersion: 1
