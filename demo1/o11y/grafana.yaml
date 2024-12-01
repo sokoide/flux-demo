@@ -21,6 +21,10 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
+    downloadDashboards:
+      enabled: false
+    initChownData:
+      enabled: false
     dashboards:
       default:
         k8s:
