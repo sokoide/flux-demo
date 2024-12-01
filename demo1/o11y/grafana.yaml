@@ -21,8 +21,15 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
+    dashboards:
+      default:
+        k8s:
+          gnetId: null
+          path: grafana-dashboards
     dashboardProviders:
-      providers:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
         - name: 'default'
           orgId: 1
           folder: ''
@@ -31,9 +38,6 @@ spec:
           editable: true
           options:
             path: /var/lib/grafana/dashboards
-    dashboards:
-      default:
-        path: grafana-dashboards
     sidecar:
       dashboards:
         enabled: true
