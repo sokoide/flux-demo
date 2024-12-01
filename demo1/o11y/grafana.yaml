@@ -22,6 +22,16 @@ spec:
   targetNamespace: o11y
   values:
     datasources:
+      dashboards:
+        default:
+          folder-name:
+            path: grafana-dashboards
+      sidecar:
+        dashboards:
+          enabled: true
+          searchNamespace: o11y
+          label: grafana_dashboard
+          labelValue: "true"
       datasources.yaml:
         apiVersion: 1
         datasources:
