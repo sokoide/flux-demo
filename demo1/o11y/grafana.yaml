@@ -27,7 +27,7 @@ spec:
         datasources:
           - name: Prometheus
             type: prometheus
-            url: http://http://prometheus-server.o11y.svc.cluster.local/
+            url: http://prometheus-kube-prometheus-prometheus.o11y.svc.cluster.local:9090/
             isDefault: true
           - name: Loki
             type: loki

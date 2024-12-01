@@ -43,3 +43,11 @@ spec:
       prometheusSpec:
         podMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
+        additionalScrapeConfigs:
+          - job_name: 'flux'
+            metrics_path: /metrics
+            static_configs:
+              - targets:
+                - flux-system-source-controller.flux-system.svc.cluster.local:8080
+                - flux-system-kustomize-controller.flux-system.svc.cluster.local:8080
+                - flux-system-helm-controller.flux-system.svc.cluster.local:8080
