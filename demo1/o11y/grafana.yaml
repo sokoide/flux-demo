@@ -20,10 +20,11 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-      - name: Loki
-        type: loki
-        url: http://loki-gateway.monitoring.svc.cluster.local/
-        isDefault: true
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+        - name: Loki
+          type: loki
+          url: http://loki-gateway.monitoring.svc.cluster.local/
+          isDefault: true
