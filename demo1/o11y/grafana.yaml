@@ -26,5 +26,5 @@ spec:
         datasources:
         - name: Loki
           type: loki
-          url: http://loki-gateway.monitoring.svc.cluster.local/
+          url: http://loki-gateway.o11y.svc.cluster.local/
           isDefault: true
