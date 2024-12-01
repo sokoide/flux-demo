@@ -6,15 +6,39 @@ metadata:
 spec:
   interval: 5m
   timeout: 10m
-  chart:
+chart:
     spec:
-      chart: prometheus
-      version: ">=15.0.0"
+      chart: kube-prometheus-stack
+      version: ">=45.0.0"
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
-  install:
-    remediation:
-      retries: 3
   values:
+    grafana:
+      enabled: false
+    kube-state-metrics:
+      customResourceState:
+        config:
+          spec:
+            resources:
+              - groupVersionKind:
+                  group: helm.toolkit.fluxcd.io
+                  version: "v2"
+                  kind: HelmRelease
+                metricNamePrefix: gotk
+                metrics:
+                  - name: "resource_info"
+                    help: "The current state of a GitOps Toolkit resource."
+                    each:
+                      type: Info
+                      info:
+                        labelsFromPath:
+                          name: [metadata, name]
+                          exported_namespace: [metadata, namespace]
+                          suspended: [spec, suspend]
+                          ready: [status, conditions, "[type=Ready]", status]
+    prometheus:
+      prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false

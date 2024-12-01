@@ -24,7 +24,10 @@ spec:
       datasources.yaml:
         apiVersion: 1
         datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://http://prometheus-server.o11y.svc.cluster.local/
+          isDefault: true
         - name: Loki
           type: loki
           url: http://o11y-loki-gateway.o11y.svc.cluster.local/
-          isDefault: true
