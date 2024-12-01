@@ -27,12 +27,6 @@ spec:
           gnetId: null
           path: grafana-dashboards
     dashboardProviders:
-      downloadDashboardsImage:
-        repository: curlimages/curl
-        tag: 7.85.0
-        pullPolicy: IfNotPresent
-      downloadDashboards:
-        enabled: false
       dashboardproviders.yaml:
         apiVersion: 1
         providers:
@@ -48,10 +42,6 @@ spec:
       dashboards:
         enabled: true
         searchNamespace: o11y
-        provider:
-          name: 'default'
-        folderAnnotation: grafana_folder
-        defaultFolderName: General
     datasources:
       datasources.yaml:
         apiVersion: 1
