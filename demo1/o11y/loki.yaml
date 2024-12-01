@@ -28,7 +28,7 @@ spec:
         configs:
           # Flux changes "2024-04-01" to "2024-04-01T00:00:00Z"
           # Enclose it by single quotes to avoid it
-          - from: '"2024-04-01"'
+          - from: '2024-04-01'
             store: tsdb
             object_store: s3
             schema: v13
