@@ -19,6 +19,7 @@ configMapGenerator:
       - grafana-dashboards/k8s-views-namespaces.json
       - grafana-dashboards/k8s-views-nodes.json
       - grafana-dashboards/k8s-views-pods.json
+      - grafana-dashboards/flux.json
     options:
       labels:
         grafana_dashboard: "true"
