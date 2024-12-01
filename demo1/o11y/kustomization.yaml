@@ -9,7 +9,7 @@ resources:
 configMapGenerator:
   - name: grafana-dashboards
     namespace: o11y
-    behavior: replace
+    behavior: create
     files:
       - grafana-dashboards/k8s-addons-prometheus.json
       - grafana-dashboards/k8s-addons-trivy-operator.json
