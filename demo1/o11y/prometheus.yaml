@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -6,7 +7,7 @@ metadata:
 spec:
   interval: 5m
   timeout: 10m
-chart:
+  chart:
     spec:
       chart: kube-prometheus-stack
       version: ">=45.0.0"
