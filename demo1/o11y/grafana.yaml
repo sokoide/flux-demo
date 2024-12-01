@@ -21,16 +21,29 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
+    dashboardProviders:
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
     dashboards:
       default:
-        folder-name:
+        k8s:
+          gnetId: null
           path: grafana-dashboards
+          extensions:
+            - json
     sidecar:
       dashboards:
         enabled: true
         searchNamespace: o11y
-        label: grafana_dashboard
-        labelValue: "true"
+        provider:
+          name: 'default'
     datasources:
       datasources.yaml:
         apiVersion: 1
