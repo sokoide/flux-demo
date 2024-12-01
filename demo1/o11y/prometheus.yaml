@@ -45,9 +45,15 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         additionalScrapeConfigs:
           - job_name: 'flux'
-            metrics_path: /metrics
-            static_configs:
-              - targets:
-                - flux-system-source-controller.flux-system.svc.cluster.local:8080
-                - flux-system-kustomize-controller.flux-system.svc.cluster.local:8080
-                - flux-system-helm-controller.flux-system.svc.cluster.local:8080
+            kubernetes_sd_configs:
+              - role: pod
+                namespaces:
+                  names:
+                    - flux-system
+            relabel_configs:
+              - source_labels: [__meta_kubernetes_pod_label_app]
+                regex: (source-controller|kustomize-controller|helm-controller)
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_container_port_number]
+                regex: "8080"
+                action: keep
