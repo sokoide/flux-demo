@@ -21,6 +21,8 @@ spec:
       retries: 3
   targetNamespace: o11y
   values:
+    downloadDashboards:
+      enabled: false
     dashboards:
       default:
         k8s:
