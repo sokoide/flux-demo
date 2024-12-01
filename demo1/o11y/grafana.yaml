@@ -30,20 +30,18 @@ spec:
           disableDeletion: false
           editable: true
           options:
-            path: /var/lib/grafana/dashboards/default
+            path: /var/lib/grafana/dashboards
     dashboards:
       default:
-        k8s:
-          gnetId: null
-          path: grafana-dashboards
-          extensions:
-            - json
+        path: grafana-dashboards
     sidecar:
       dashboards:
         enabled: true
         searchNamespace: o11y
         provider:
           name: 'default'
+        folderAnnotation: grafana_folder
+        defaultFolderName: General
     datasources:
       datasources.yaml:
         apiVersion: 1
